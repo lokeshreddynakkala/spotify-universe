@@ -753,13 +753,10 @@ def load_hit_model():
     model_path  = os.path.join(base, "hit_prediction_ann_model.h5")
     scaler_path = os.path.join(base, "hit_scaler.pkl")
     if not os.path.exists(model_path):
-        return None, None, f"Model file not found: {model_path}"
+        return None, None, f"Model file not found:\n{model_path}"
     if not os.path.exists(scaler_path):
-        return None, None, f"Scaler file not found: {scaler_path}"
+        return None, None, f"Scaler file not found:\n{scaler_path}"
     try:
-        import subprocess, sys
-        subprocess.check_call([sys.executable, "-m", "pip", "install",
-                               "tensorflow-cpu==2.13.1", "--quiet"])
         from tensorflow.keras.models import load_model
         model  = load_model(model_path)
         scaler = joblib.load(scaler_path)
