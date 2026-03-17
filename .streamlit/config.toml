@@ -1,0 +1,18 @@
+[server]
+headless = true
+
+[global]
+developmentMode = false
+```
+
+**Step 2 — Replace your entire `requirements.txt` with this** — no tensorflow at all for now:
+```
+streamlit
+pandas
+numpy
+scikit-learn==1.3.2
+joblib
+plotly
+xgboost
+matplotlib
+seaborn
